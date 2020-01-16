@@ -2,4 +2,4 @@ py_scripts/cfg.py
 gradle-local.properties
 .vscode
 cert.txt
-.gradle/
+.gradle
