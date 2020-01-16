@@ -1,0 +1,11 @@
+USE @graphname@
+
+CREATE QUERY companyLinks(/* Parameters here */) FOR GRAPH @graphname@ SYNTAX v2{ 
+	TYPEDEF TUPLE <STRING src, STRING dest> TUPLE_RECORD;
+	ListAccum<TUPLE_RECORD> @@tupleRecords;
+	companies = {company.*};  
+	result = SELECT tgt FROM companies:s-(:e1)-:mid-(:e2)-company:tgt WHERE s != tgt 
+	         ACCUM @@tupleRecords += TUPLE_RECORD (s.name, tgt.name);
+	PRINT @@tupleRecords;
+
+}
