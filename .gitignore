@@ -3,3 +3,5 @@ gradle-local.properties
 .vscode
 cert.txt
 .gradle
+build/
+py_scripts/__pycache__

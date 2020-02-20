@@ -7,5 +7,4 @@ CREATE QUERY companyLinks(/* Parameters here */) FOR GRAPH @graphname@ SYNTAX v2
 	result = SELECT tgt FROM companies:s-(:e1)-:mid-(:e2)-company:tgt WHERE s != tgt 
 	         ACCUM @@tupleRecords += TUPLE_RECORD (s.name, tgt.name);
 	PRINT @@tupleRecords;
-
 }
