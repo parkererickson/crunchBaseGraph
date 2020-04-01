@@ -1,7 +1,7 @@
 import com.optum.giraffle.tasks.GsqlTask
 
 plugins {
-    id("com.optum.giraffle") version "1.3.2"
+    id("com.optum.giraffle") version "1.3.3"
     id("net.saliman.properties") version "1.5.1"
 }
 
@@ -41,10 +41,22 @@ tasks {
         scriptPath = "companyLinks.gsql"
         superUser = true
     }
-    val installTrainAnswerTuples by registering(GsqlTask::class){
+    val installCompanyLinks by registering(GsqlTask::class){
         group = grpQueries
         description = "Installs the companyLinks query"
         scriptPath = "installCompanyLinks.gsql"
+        superUser = true
+    }
+    val createIPOLinks by registering(GsqlTask::class){
+        group = grpQueries
+        description = "Creates the companyLinks query"
+        scriptPath = "ipoLinks.gsql"
+        superUser = true
+    }
+    val installIPOLinks by registering(GsqlTask::class){
+        group = grpQueries
+        description = "Installs the companyLinks query"
+        scriptPath = "installIPOLinks.gsql"
         superUser = true
     }
 }

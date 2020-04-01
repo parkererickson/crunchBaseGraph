@@ -1,4 +1,4 @@
-USE @graphname@
+USE GRAPH @graphname@
 
 CREATE QUERY companyLinks(/* Parameters here */) FOR GRAPH @graphname@ SYNTAX v2{ 
 	TYPEDEF TUPLE <STRING src, STRING dest> TUPLE_RECORD;
