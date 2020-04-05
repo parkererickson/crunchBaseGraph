@@ -14,10 +14,10 @@ openssl x509 -text > cert.txt
 ## Installing the Python Packages Needed
 You need to install quite a few Python packages. Good news, is that this is easily done via pip:
 ```
-pip install pytigergraph
-pip install torch
-pip install dgl
-pip install networkx
+pip3 install pytigergraph
+pip3 install torch
+pip3 install dgl
+pip3 install networkx
 ```
 You are now all ready to try out the notebook. Find it in /py_scripts.
 
