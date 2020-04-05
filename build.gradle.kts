@@ -47,16 +47,29 @@ tasks {
         scriptPath = "installCompanyLinks.gsql"
         superUser = true
     }
-    val createIPOLinks by registering(GsqlTask::class){
+    val createGetAllIpo by registering(GsqlTask::class){
         group = grpQueries
-        description = "Creates the companyLinks query"
-        scriptPath = "ipoLinks.gsql"
+        description = "Creates the getAllIpo query"
+        scriptPath = "getAllIpo.gsql"
         superUser = true
     }
-    val installIPOLinks by registering(GsqlTask::class){
+    val installGetAllIpo by registering(GsqlTask::class){
         group = grpQueries
-        description = "Installs the companyLinks query"
-        scriptPath = "installIPOLinks.gsql"
+        description = "Installs the getAllIpo query"
+        scriptPath = "installGetAllIpo.gsql"
         superUser = true
     }
+    val createGetAllCompanies by registering(GsqlTask::class){
+        group = grpQueries
+        description = "Creates the getAllCompanies query"
+        scriptPath = "getAllCompanies.gsql"
+        superUser = true
+    }
+    val installGetAllCompanies by registering(GsqlTask::class){
+        group = grpQueries
+        description = "Installs the getAllCompanies query"
+        scriptPath = "installGetAllCompanies.gsql"
+        superUser = true
+    }
+
 }

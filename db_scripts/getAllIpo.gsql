@@ -1,0 +1,11 @@
+USE GRAPH @graphname@
+
+CREATE QUERY getAllIpo(/* Parameters here */) FOR GRAPH @graphname@ { 
+	TYPEDEF TUPLE <STRING src, INT ipoStatus> TUPLE_RECORD;
+	ListAccum<TUPLE_RECORD> @@tupleRecords;
+	SumAccum <INT> @@countEdge;
+	BOOL result;
+  companies = {company.*};
+  ipoConnections = SELECT tgt FROM companies:s -(company_ipo:e) -> IPO:tgt ACCUM @@tupleRecords += TUPLE_RECORD (s.normalized_name,1);
+  print @@tupleRecords;
+}

@@ -1,0 +1,9 @@
+USE GRAPH @graphname@
+
+CREATE QUERY getAllCompanies(/* Parameters here */) FOR GRAPH @graphname@ { 
+	TYPEDEF TUPLE <STRING src> TUPLE_RECORD;
+	ListAccum<TUPLE_RECORD> @@tupleRecords;
+  companies = {company.*};
+  ipoConnections = SELECT tgt FROM companies:tgt ACCUM @@tupleRecords += TUPLE_RECORD (tgt.normalized_name);
+  print @@tupleRecords;
+}

@@ -1,2 +1,0 @@
-USE GRAPH @graphname@
-INSTALL QUERY ipoLinks
