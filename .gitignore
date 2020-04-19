@@ -6,3 +6,4 @@ cert.txt
 build/
 py_scripts/__pycache__
 py_scripts/.ipynb_checkpoints
+data/*
