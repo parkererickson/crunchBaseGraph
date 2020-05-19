@@ -1,12 +1,17 @@
 import com.optum.giraffle.tasks.GsqlTask
+import com.optum.giraffle.UriScheme
 
 plugins {
-    id("com.optum.giraffle") version "1.3.3"
+    id("com.optum.giraffle") version "1.3.4"
     id("net.saliman.properties") version "1.5.1"
 }
 
 repositories {
     jcenter()
+}
+
+dependencies {
+    gsqlRuntime("com.tigergraph.client:gsql_client:2.6.0")
 }
 
 val gsqlGraphname: String by project // <1>
@@ -16,6 +21,7 @@ val gsqlPassword: String by project
 val gsqlAdminUserName: String by project
 val gsqlAdminPassword: String by project
 val gsqlCaCert: String by project
+val gsqlAuthSecret: String by project
 val tokenMap: LinkedHashMap<String, String> =
     linkedMapOf("graphname" to gsqlGraphname) // <2>
 
@@ -32,6 +38,8 @@ tigergraph { // <3>
     adminUserName.set(gsqlAdminUserName)
     adminPassword.set(gsqlAdminPassword)
     caCert.set(gsqlCaCert)
+    authSecret.set(gsqlAuthSecret)
+    uriScheme.set(UriScheme.HTTPS)
 }
 
 tasks {
